@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MosqueAdmin</string>
+    <string name="fajar">10:00AM</string>
+    <string name="zuhar">10:00PM</string>
+    <string name="asar">10:00PM</string>
+    <string name="magrib">10:00PM</string>
+    <string name="isha">10:00PM</string>
+    <string name="juma">10:00Pm</string>
+</resources>
