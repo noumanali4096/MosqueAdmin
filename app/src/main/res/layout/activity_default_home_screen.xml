@@ -9,9 +9,34 @@
     <Button
         android:id="@+id/update_prayer_timing"
         android:layout_width="202dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="74dp"
         android:text="Update Prayer Timing" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="201dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="157dp"
+        android:text="View Nikkah Request" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="201dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="View Ittekaaf Request" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="201dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="153dp"
+        android:text="View Complaints" />
 </RelativeLayout>

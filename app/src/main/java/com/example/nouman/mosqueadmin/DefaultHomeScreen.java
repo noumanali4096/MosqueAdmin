@@ -9,11 +9,15 @@ import android.widget.Button;
 public class DefaultHomeScreen extends AppCompatActivity {
 
     Button updateprayertiming;
+    Button viewnikkah,viewIttekaaf,viewComplaints;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_home_screen);
         updateprayertiming=(Button) findViewById(R.id.update_prayer_timing);
+        viewnikkah=(Button) findViewById(R.id.button7);
+        viewIttekaaf=(Button) findViewById(R.id.button8);
+        viewComplaints=(Button) findViewById(R.id.button9);
         updateprayertiming.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

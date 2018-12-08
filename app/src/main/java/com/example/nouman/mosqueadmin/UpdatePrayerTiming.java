@@ -35,6 +35,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
     PrayerTImings prayerTImings;
     DBHelper dbHelper;
     DatabaseReference databasePrayerTiming;
+    DatabaseReference databaseMosqueTiming;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,9 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
 
         databasePrayerTiming = FirebaseDatabase.getInstance().getReferenceFromUrl
                 ("https://azzan-f7f08.firebaseio.com/prayertiming");
+
+        databaseMosqueTiming = FirebaseDatabase.getInstance().getReferenceFromUrl
+                ("https://azzan-f7f08.firebaseio.com/mosquentiming");
 
         Query fireBaseQuery = databasePrayerTiming.orderByChild("phoneNumber").equalTo(myphone);
 
@@ -335,6 +339,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
                 String jumatime=juma.getText().toString().trim();
                 prayerTImings.setJumatime(jumatime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
+                databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
                 break;
         }
 

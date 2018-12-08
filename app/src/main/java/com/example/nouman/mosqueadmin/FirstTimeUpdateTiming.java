@@ -30,7 +30,7 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
     PrayerTImings prayerTImings;
 
     DatabaseReference databasePrayerTiming;
-
+    DatabaseReference databaseMosqueTiming;
     Button update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,8 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
         //final String myphone = contacts.get(0).getPhone();
         databasePrayerTiming = FirebaseDatabase.getInstance().getReferenceFromUrl
                 ("https://azzan-f7f08.firebaseio.com/prayertiming");
+        databaseMosqueTiming = FirebaseDatabase.getInstance().getReferenceFromUrl
+               ("https://azzan-f7f08.firebaseio.com/mosquentiming");
         init();
 
         e1.setFocusable(false);
@@ -80,8 +82,6 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
         prayerTImings =new PrayerTImings();
         prayerTImings.setPhoneNumber(myphone);
         update.setOnClickListener(this);
-
-
     }
 
     private  void init(){
@@ -274,6 +274,8 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
                 prayerTImings.setIshatime(ishatime);
                 prayerTImings.setJumatime(jumatime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
+
+                databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
                 Toast.makeText(this,"Prayer Timings Added",Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(FirstTimeUpdateTiming.this,DefaultHomeScreen.class);
                 startActivity(intent);
