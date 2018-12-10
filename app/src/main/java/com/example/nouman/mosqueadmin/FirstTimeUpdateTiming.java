@@ -25,7 +25,8 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
     int currentHour;
     int currentMinute;
     String amPm;
-
+    String myphone;
+    String mypass;
     DBHelper dbHelper;
     PrayerTImings prayerTImings;
 
@@ -44,8 +45,8 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
         // final String myphone = contacts.get(0).getPhone();
 
         Bundle bundle = intent2.getExtras();
-        String myphone = bundle.getString("user_phone");
-        String mypass=bundle.getString("user_pass");
+        myphone = bundle.getString("user_phone");
+        mypass=bundle.getString("user_pass");
        // mosqueAdmin.setPhone(myphone);
         //mosqueAdmin.setPassword(mypass);
 
@@ -278,7 +279,11 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
                 databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
                 Toast.makeText(this,"Prayer Timings Added",Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(FirstTimeUpdateTiming.this,DefaultHomeScreen.class);
-                startActivity(intent);
+                intent.putExtra("user_phone",myphone);
+                intent.putExtra("user_pass",mypass);
+                startActivityForResult(intent,10);
+               // startActivity(intent);
+                finish();
                 break;
 
         }

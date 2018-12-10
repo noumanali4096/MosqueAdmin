@@ -16,7 +16,7 @@
         android:text="Update Prayer Timing" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/nikkahRequest"
         android:layout_width="201dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -25,7 +25,7 @@
         android:text="View Nikkah Request" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/ittekaafRequest"
         android:layout_width="201dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

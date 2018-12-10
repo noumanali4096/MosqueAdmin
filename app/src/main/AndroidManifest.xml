@@ -22,7 +22,11 @@
         <activity android:name=".DefaultHomeScreen" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".UpdatePrayerTiming" />
-        <activity android:name=".FirstTimeUpdateTiming"></activity>
+        <activity android:name=".FirstTimeUpdateTiming" />
+        <activity android:name=".NikkahList" />
+        <activity android:name=".NikkahAcceptRejectActivity" />
+        <activity android:name=".IttekaafListActivity" />
+        <activity android:name=".IttekaafAcceptedRejected"></activity>
     </application>
 
 </manifest>
