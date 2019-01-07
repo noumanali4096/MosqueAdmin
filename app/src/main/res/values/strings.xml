@@ -6,4 +6,8 @@
     <string name="magrib">10:00PM</string>
     <string name="isha">10:00PM</string>
     <string name="juma">10:00Pm</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_remove_mosque">RemoveMosque</string>
 </resources>

@@ -304,7 +304,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.button1:
                 updatefajartime=(Button) v.findViewById(R.id.button1);
-                String fajartime=fajar.getText().toString().trim();
+                String fajartime=e1.getText().toString().trim();
                 prayerTImings.setFajartime(fajartime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
                 databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
@@ -313,7 +313,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
 
             case R.id.button2:
                 updatezohartime=(Button) v.findViewById(R.id.button2);
-                String zohartime=zohar.getText().toString().trim();
+                String zohartime=e2.getText().toString().trim();
                 prayerTImings.setZohartime(zohartime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
                 databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
@@ -321,7 +321,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
 
             case R.id.button3:
                 updateasartime=(Button) v.findViewById(R.id.button3);
-                String asartime=asar.getText().toString().trim();
+                String asartime=e3.getText().toString().trim();
                 prayerTImings.setAsartime(asartime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
                 databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
@@ -329,7 +329,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
 
             case R.id.button4:
                 updatemaghribtime=(Button) v.findViewById(R.id.button4);
-                String maghribtime=maghrib.getText().toString().trim();
+                String maghribtime=e4.getText().toString().trim();
                 prayerTImings.setMaghribtime(maghribtime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
                 databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
@@ -337,7 +337,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
 
             case R.id.button5:
                 updateishatime=(Button) v.findViewById(R.id.button5);
-                String ishatime=isha.getText().toString().trim();
+                String ishatime=e5.getText().toString().trim();
                 prayerTImings.setIshatime(ishatime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
                 databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);
@@ -345,7 +345,7 @@ public class UpdatePrayerTiming extends AppCompatActivity implements View.OnClic
 
             case R.id.button6:
                 updatejumatime=(Button) v.findViewById(R.id.button6);
-                String jumatime=juma.getText().toString().trim();
+                String jumatime=e6.getText().toString().trim();
                 prayerTImings.setJumatime(jumatime);
                 databasePrayerTiming.child(prayerTImings.getPhoneNumber()).setValue(prayerTImings);
                 databaseMosqueTiming.child(prayerTImings.getPhoneNumber()).child("prayerTimmings").setValue(prayerTImings);

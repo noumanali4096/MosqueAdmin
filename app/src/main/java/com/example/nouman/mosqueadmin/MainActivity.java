@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,13 +36,14 @@ public class MainActivity extends AppCompatActivity {
     MosqueAdmin mosqueAdmin;
     DatabaseReference databasemosqueadmin;
     DBHelper dbHelper;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dbHelper=new DBHelper(this);
-
+        mAuth = FirebaseAuth.getInstance();
 
         databasemosqueadmin = FirebaseDatabase.getInstance().getReferenceFromUrl("https://azzan-f7f08.firebaseio.com/mosqueadmin");
         phone=(EditText) findViewById(R.id.phone);
@@ -55,6 +62,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser!=null)
+        {
+            Intent intent = new Intent(MainActivity.this,DefaultHomeScreen.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            mAuth.signInAnonymously()
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Toast.makeText(MainActivity.this,"sucessful",Toast.LENGTH_LONG);
+                            } else {
+                                Toast.makeText(MainActivity.this,"sucessful",Toast.LENGTH_LONG);
+                            }
+                        }
+                    });
+        }
+    }
 
     private  void searchMosqueadmin(final String phone) {
 
@@ -76,23 +108,24 @@ public class MainActivity extends AppCompatActivity {
                     {
 
                         progressDialog.dismiss();
-                       // MosqueAdmin ma=new MosqueAdmin();
-                        //ma=dbHelper.getAdmin(mosqueAdmin.getPhone());
-                        //if(ma!=null){
-
-                        //}
-                        //else{
-                          //  dbHelper.deleteTable();
                             dbHelper.addAdmin(mosqueAdmin);
-                            Toast.makeText(MainActivity.this, "added into db", Toast.LENGTH_LONG).show();
-                            Toast.makeText(MainActivity.this, "LogedIn", Toast.LENGTH_LONG).show();
-                            Intent intent=new Intent(MainActivity.this,ResetPassword.class);
+                        Toast.makeText(MainActivity.this, "LogedIn", Toast.LENGTH_LONG).show();
+                            if(phone_number.equals(pass)) {
 
-                            intent.putExtra("user_phone",phone_number);
-                            intent.putExtra("user_pass",pass);
-                            startActivityForResult(intent,1);
+                                Intent intent = new Intent(MainActivity.this, ResetPassword.class);
+                                intent.putExtra("user_phone", phone_number);
+                                intent.putExtra("user_pass", pass);
+                                startActivityForResult(intent, 1);
+                                finish();
+                            }
+                            else{
+                                Intent intent = new Intent(MainActivity.this, DefaultHomeScreen.class);
+                                intent.putExtra("user_phone",phone_number);
+                                intent.putExtra("user_pass",pass);
+                                startActivityForResult(intent, 1);
+                                finish();
+                            }
 
-                        //}
 
 
 // Insert the new row, returning the primary key value of the new row

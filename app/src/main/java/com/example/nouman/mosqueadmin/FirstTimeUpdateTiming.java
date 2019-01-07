@@ -262,12 +262,12 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
 
             case R.id.update_button:
                 update=(Button) v.findViewById(R.id.update_button);
-                String fajartime=fajar.getText().toString().trim();
-                String zohartime=zohar.getText().toString().trim();
-                String asartime=asar.getText().toString().trim();
-                String maghribtime=maghrib.getText().toString().trim();
-                String ishatime=isha.getText().toString().trim();
-                String jumatime=juma.getText().toString().trim();
+                String fajartime=e1.getText().toString().trim();
+                String zohartime=e2.getText().toString().trim();
+                String asartime=e3.getText().toString().trim();
+                String maghribtime=e4.getText().toString().trim();
+                String ishatime=e5.getText().toString().trim();
+                String jumatime=e6.getText().toString().trim();
                 prayerTImings.setFajartime(fajartime);
                 prayerTImings.setZohartime(zohartime);
                 prayerTImings.setAsartime(asartime);
@@ -282,7 +282,6 @@ public class FirstTimeUpdateTiming extends AppCompatActivity implements View.OnC
                 intent.putExtra("user_phone",myphone);
                 intent.putExtra("user_pass",mypass);
                 startActivityForResult(intent,10);
-               // startActivity(intent);
                 finish();
                 break;
 

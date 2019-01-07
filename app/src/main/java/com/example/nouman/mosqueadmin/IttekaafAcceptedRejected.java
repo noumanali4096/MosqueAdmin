@@ -36,7 +36,7 @@ public class IttekaafAcceptedRejected extends AppCompatActivity {
         t3.setText(uName);
         t4.setText(userPhone);
 
-        approveldb= FirebaseDatabase.getInstance().getReferenceFromUrl("https://azzan-f7f08.firebaseio.com/NikkahAppointment");
+        approveldb= FirebaseDatabase.getInstance().getReferenceFromUrl("https://azzan-f7f08.firebaseio.com/IttekaafAppointment");
 
         B1.setOnClickListener(new View.OnClickListener() {
             @Override

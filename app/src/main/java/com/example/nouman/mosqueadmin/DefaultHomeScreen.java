@@ -9,7 +9,7 @@ import android.widget.Button;
 public class DefaultHomeScreen extends AppCompatActivity {
 
     Button updateprayertiming;
-    Button viewnikkah,viewIttekaaf,viewComplaints;
+    Button viewnikkah,viewIttekaaf;
     String myphone;
     String mypass;
     @Override
@@ -19,7 +19,6 @@ public class DefaultHomeScreen extends AppCompatActivity {
         updateprayertiming=(Button) findViewById(R.id.update_prayer_timing);
         viewnikkah=(Button) findViewById(R.id.nikkahRequest);
         viewIttekaaf=(Button) findViewById(R.id.ittekaafRequest);
-        viewComplaints=(Button) findViewById(R.id.button9);
         Intent intent2 = getIntent();
         // final String myphone = contacts.get(0).getPhone();
 

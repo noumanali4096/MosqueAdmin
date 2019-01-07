@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".DefaultHomeScreen">
 
+
+
     <Button
         android:id="@+id/update_prayer_timing"
         android:layout_width="202dp"
@@ -31,12 +33,4 @@
         android:layout_centerInParent="true"
         android:text="View Ittekaaf Request" />
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="201dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="153dp"
-        android:text="View Complaints" />
 </RelativeLayout>
